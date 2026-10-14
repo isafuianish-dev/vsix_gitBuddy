@@ -1,0 +1,92 @@
+{
+  "name": "git-buddy",
+  "displayName": "Git Buddy",
+  "description": "A complete Git & GitHub workflow companion right inside VS Code — branch, stage, commit, stash, tag, and manage pull requests without leaving the editor.",
+  "version": "2.2.0",
+  "publisher": "isafuianish-dev",
+  "private": true,
+  "icon": "media/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "gitbuddy",
+          "title": "Git Buddy",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "gitbuddy": [
+        {
+          "id": "gitbuddy.dashboard",
+          "name": "",
+          "type": "webview"
+        }
+      ]
+    },
+    "commands": [
+      { "command": "gitbuddy.cloneRepository", "title": "Git Buddy: Clone Repository" },
+      { "command": "gitbuddy.checkoutBranch", "title": "Git Buddy: Checkout Branch" },
+      { "command": "gitbuddy.createNew", "title": "Git Buddy: Create New" },
+      { "command": "gitbuddy.checkoutRemote", "title": "Git Buddy: Checkout Remote" },
+      { "command": "gitbuddy.checkoutLocal", "title": "Git Buddy: Checkout Local Branch" },
+      { "command": "gitbuddy.pullChanges", "title": "Git Buddy: Pull Changes" },
+      { "command": "gitbuddy.pushChanges", "title": "Git Buddy: Push Changes" },
+      { "command": "gitbuddy.fetchAll", "title": "Git Buddy: Fetch All Changes" },
+      { "command": "gitbuddy.stageFiles", "title": "Git Buddy: Stage Files" },
+      { "command": "gitbuddy.unstageFiles", "title": "Git Buddy: Unstage Files" },
+      { "command": "gitbuddy.commitChanges", "title": "Git Buddy: Commit Changes" },
+      { "command": "gitbuddy.amendCommit", "title": "Git Buddy: Amend Commit" },
+      { "command": "gitbuddy.restoreFile", "title": "Git Buddy: Restore File" },
+      { "command": "gitbuddy.cleanupFiles", "title": "Git Buddy: Cleanup Files" },
+      { "command": "gitbuddy.cleanupBranches", "title": "Git Buddy: Cleanup Branches" },
+      { "command": "gitbuddy.stashChanges", "title": "Git Buddy: Stash Changes" },
+      { "command": "gitbuddy.stashPop", "title": "Git Buddy: Stash Pop" },
+      { "command": "gitbuddy.commitDetails", "title": "Git Buddy: Commit Details" },
+      { "command": "gitbuddy.commitLogs", "title": "Git Buddy: Commit Logs" },
+      { "command": "gitbuddy.createTag", "title": "Git Buddy: Create Tag" },
+      { "command": "gitbuddy.pullRequest", "title": "Git Buddy: Pull Request" },
+      { "command": "gitbuddy.showGitLog", "title": "Git Buddy: Show Git Log" },
+      { "command": "gitbuddy.fileHistory", "title": "Git Buddy: File History" },
+      { "command": "gitbuddy.status", "title": "Git Buddy: Status" },
+      { "command": "gitbuddy.changedFiles", "title": "Git Buddy: Changed Files" },
+      { "command": "gitbuddy.updateGitHubApiToken", "title": "Git Buddy: Update GitHub API Token" },
+      { "command": "gitbuddy.renameBranch", "title": "Git Buddy: Rename Branch" },
+      { "command": "gitbuddy.validateMigration", "title": "Git Buddy: Validate Migration" },
+      { "command": "gitbuddy.focusSidebar", "title": "Git Buddy: Focus Sidebar" }
+    ],
+    "keybindings": [
+      {
+        "command": "gitbuddy.focusSidebar",
+        "key": "ctrl+alt+g"
+      }
+    ],
+    "configuration": {
+      "title": "Git Buddy",
+      "properties": {
+        "gitbuddy.defaultRemote": {
+          "type": "string",
+          "default": "origin",
+          "description": "The default remote name used for push/pull/fetch operations."
+        },
+        "gitbuddy.ignoreSslErrors": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable SSL certificate verification for GitHub API calls (useful behind corporate proxies)."
+        }
+      }
+    }
+  }
+}
